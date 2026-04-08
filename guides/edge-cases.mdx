@@ -1,0 +1,62 @@
+---
+title: 'Edge cases'
+description: 'How Bazi Skill handles incomplete birth data, boundary dates, and other situations that require special treatment.'
+keywords: ['edge cases', 'unknown birth hour', 'solar term', 'leap month', 'night zi-hour', 'lichun']
+---
+
+Bazi Skill is designed to handle messy real-world data gracefully. When something about your birth information is uncertain or falls on a boundary, the skill tells you exactly what it can and cannot calculate — and carries on with as complete an analysis as the available data allows.
+
+<Note>
+  If the skill cannot produce a full Eight-Character chart, it tells you which pillar is missing or ambiguous before proceeding. For situations where a chart is impossible entirely, it asks you to verify your birth records. See [information collection](/how-it-works/information-collection) for the full data-gathering flow.
+</Note>
+
+## Common edge cases
+
+<AccordionGroup>
+  <Accordion title="Birth hour unknown (时辰未知)">
+    When you do not know your birth hour, the Hour Pillar is marked **unknown** in the chart display. The skill performs a **Six-Character (六字) analysis** covering only the Year, Month, and Day pillars. Any conclusion that would rely on the Hour Pillar — such as Hour-based Ten Gods, Hidden Stems from the Hour Branch, or Hour-influenced Major Luck Cycle refinements — is omitted from the reading.
+
+    The analysis is still substantial: day-master strength, Five-Element balance, pattern determination, and Major Luck Cycles can all be derived from the remaining six characters.
+  </Accordion>
+
+  <Accordion title="Both solar and lunar date unknown">
+    If you cannot provide either your solar (Gregorian) or lunar birth date, the skill **cannot construct a chart**. It will prompt you to:
+
+    - Check your birth certificate or household registration record
+    - Ask a family member who may remember the date
+
+    Once you have at least one date, the skill can proceed. Providing both allows cross-verification.
+  </Accordion>
+
+  <Accordion title="Born on a solar term boundary day (节气交界日)">
+    Month Pillars in Bazi are determined by solar terms (节气), not by the lunar calendar. If you were born on the exact day a solar term changes, the precise hour of that transition determines which month pillar applies — and that time is not always easy to confirm.
+
+    In this situation the skill presents **two possible Month Pillars** and briefly analyzes both, noting how each affects the pattern and Five-Element balance. If you can narrow down your birth time to before or after the transition, the skill will commit to one pillar.
+  </Accordion>
+
+  <Accordion title="Born around Lichun (立春前後)">
+    The Year Pillar changes at **Lichun (立春, Start of Spring)**, which falls around February 3–5 each year — not on Lunar New Year's Day. If you were born within a few days of Lichun, the skill prompts you to confirm your exact birth time so it can determine whether you belong to the outgoing or incoming year pillar.
+
+    <Tip>
+      If you only know the date but not the hour, the skill will flag the year-pillar attribution as uncertain and present both possibilities.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Night Zi-hour (夜子时, 23:00–24:00)">
+    In classical Bazi, the two-hour Zi period (子时) straddles midnight: **early Zi-hour (早子时)** runs from 23:00 to 00:00, and **late Zi-hour (晚子时)** runs from 00:00 to 01:00. Different schools handle this differently.
+
+    Bazi Skill uses the **early/late Zi-hour method**: if you were born between 23:00 and 24:00, the Hour Pillar is calculated using the **next calendar day's Day Stem** (次日日柱). The chart notes this convention explicitly so you know which method was applied.
+  </Accordion>
+
+  <Accordion title="Former name change date unknown">
+    If you have a former name but cannot remember when the name change occurred, the change date is recorded as **unknown**. The skill analyzes only your **current name** and notes the former name alongside the unknown change date in the summary. No phonetic or stroke-count analysis is applied to the former name under these conditions.
+  </Accordion>
+
+  <Accordion title="Deceased subject">
+    When you indicate that the subject has passed away, the skill collects the **year of death**. Major Luck Cycle and annual luck analysis then extends **only up to that year** — no subsequent annual luck or future cycles are calculated. This keeps the reading historically grounded and avoids projecting fortune beyond the subject's lifespan.
+  </Accordion>
+
+  <Accordion title="Born in a leap lunar month (闰月)">
+    The Chinese lunar calendar occasionally inserts a leap month (闰月) to stay aligned with the solar year. Bazi Skill records your lunar birth date with an explicit **leap-month flag** (e.g., 闰四月). However, pillar calculation is based entirely on **solar terms**, so the presence of a leap month has no effect on the resulting Four Pillars. The flag is preserved for reference only.
+  </Accordion>
+</AccordionGroup>

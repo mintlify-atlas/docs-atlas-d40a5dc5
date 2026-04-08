@@ -1,0 +1,110 @@
+---
+title: "Installation"
+description: "Install Bazi Skill into your Claude Code project or globally so every project can use it."
+keywords: ["bazi", "install", "claude code", "skill", "git clone", ".claude/skills"]
+---
+
+## Prerequisites
+
+- **Claude Code** — [claude.ai/code](https://claude.ai/code). Bazi Skill is a Claude Code skill and does not work outside of Claude Code.
+- **Git** — used to clone the skill repository.
+
+## How Claude Code finds skills
+
+Claude Code looks for skills in the `.claude/skills/` directory relative to your **git repository root**. Make sure you run the project-level install command from the root of your repo, not from a subdirectory.
+
+## Choose your install scope
+
+<Tabs>
+  <Tab title="Project-level">
+    Installs the skill for a single project. Only sessions opened inside that repository will have access to it.
+
+    Run these two commands from the **root of your git repository**:
+
+    ```bash terminal
+    mkdir -p .claude/skills
+    git clone https://github.com/jinchenma94/bazi-skill .claude/skills/bazi
+    ```
+
+    <Tip>
+      Commit the `.claude/skills/bazi` directory to your repository so teammates get the skill automatically when they clone the project.
+    </Tip>
+  </Tab>
+  <Tab title="Global">
+    Installs the skill once and makes it available in every Claude Code session, regardless of which project you have open.
+
+    ```bash terminal
+    git clone https://github.com/jinchenma94/bazi-skill ~/.claude/skills/bazi
+    ```
+
+    No additional setup is needed. Claude Code automatically discovers skills in `~/.claude/skills/`.
+  </Tab>
+</Tabs>
+
+## Verify the installation
+
+After cloning, confirm the directory structure looks like this:
+
+<Tabs>
+  <Tab title="Project-level">
+    ```
+    your-repo/
+    └── .claude/
+        └── skills/
+            └── bazi/
+                ├── SKILL.md
+                ├── references/
+                │   ├── wuxing-tables.md
+                │   ├── shichen-table.md
+                │   ├── dayun-rules.md
+                │   └── classical-texts.md
+                ├── LICENSE
+                └── README.md
+    ```
+  </Tab>
+  <Tab title="Global">
+    ```
+    ~/.claude/
+    └── skills/
+        └── bazi/
+            ├── SKILL.md
+            ├── references/
+            │   ├── wuxing-tables.md
+            │   ├── shichen-table.md
+            │   ├── dayun-rules.md
+            │   └── classical-texts.md
+            ├── LICENSE
+            └── README.md
+    ```
+  </Tab>
+</Tabs>
+
+The `SKILL.md` file at the root of the cloned directory is the skill entry point. Claude Code reads it automatically when you trigger the skill with a keyword.
+
+## Keeping the skill up to date
+
+To pull the latest updates, run `git pull` inside the skill directory:
+
+<Tabs>
+  <Tab title="Project-level">
+    ```bash terminal
+    git -C .claude/skills/bazi pull
+    ```
+  </Tab>
+  <Tab title="Global">
+    ```bash terminal
+    git -C ~/.claude/skills/bazi pull
+    ```
+  </Tab>
+</Tabs>
+
+## Next step
+
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Trigger your first reading and see the full analysis flow.
+  </Card>
+  <Card title="Introduction" icon="book-open" href="/introduction">
+    Learn what Bazi Skill does and how it differs from static chart tools.
+  </Card>
+</CardGroup>

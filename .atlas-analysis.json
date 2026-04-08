@@ -1,0 +1,84 @@
+{
+  "projectType": "general",
+  "projectName": "Bazi Skill — 赛博算命",
+  "projectDescription": "A Claude Code skill that performs traditional Chinese Four Pillars (八字) astrology analysis through interactive conversation, referencing nine classical texts to deliver professional birth chart readings.",
+  "theme": "almond",
+  "primaryColor": "#94cb04",
+  "lightColor": "#545454",
+  "darkColor": null,
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guide",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "installation",
+              "quickstart"
+            ]
+          },
+          {
+            "group": "How It Works",
+            "pages": [
+              "how-it-works/information-collection",
+              "how-it-works/charting",
+              "how-it-works/analysis"
+            ]
+          },
+          {
+            "group": "Edge Cases & Tips",
+            "pages": [
+              "guides/edge-cases",
+              "guides/disclaimer"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Reference",
+        "groups": [
+          {
+            "group": "Tables",
+            "pages": [
+              "reference/heavenly-stems-earthly-branches",
+              "reference/ten-gods",
+              "reference/shichen-table",
+              "reference/dayun-rules"
+            ]
+          },
+          {
+            "group": "Classical Texts",
+            "pages": [
+              "reference/classical-texts-overview",
+              "reference/qiong-tong-bao-dian",
+              "reference/san-ming-tong-hui",
+              "reference/di-tian-sui",
+              "reference/yuan-hai-zi-ping",
+              "reference/zi-ping-zhen-quan"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Interactive step-by-step birth data collection (name, solar/lunar date, shichen, gender, birthplace)",
+    "Automatic Four Pillars (四柱) calculation: Year, Month, Day, and Hour pillars",
+    "Ten Gods (十神) and Hidden Stems (藏干) derivation",
+    "Major Luck Cycles (大运) direction and onset age calculation",
+    "Annual Luck (流年) analysis for current and near-future years",
+    "Five-element balance, pattern/格局 determination, and favorable/unfavorable gods",
+    "Historical event calibration to verify and refine the reading",
+    "Analysis grounded in nine classical Chinese astrology texts"
+  ],
+  "publicApiSurface": [
+    "Trigger keywords: 算八字, 看八字, 批八字, 排八字, 四柱, 命盘, 算命, 排盘, bazi",
+    "SKILL.md — skill entry point consumed by Claude Code",
+    "references/wuxing-tables.md — Five-elements, stems/branches, Ten Gods, Hidden Stems tables",
+    "references/shichen-table.md — Shichen lookup and Five-Rat Escaping method",
+    "references/dayun-rules.md — Major Luck Cycles ordering and onset calculation",
+    "references/classical-texts.md — Core rules extracted from nine canonical texts"
+  ]
+}

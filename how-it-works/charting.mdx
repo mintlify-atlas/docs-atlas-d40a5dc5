@@ -1,0 +1,163 @@
+---
+title: "Charting"
+description: "How the Bazi skill computes the four pillars and major luck cycles from your confirmed birth details."
+---
+
+Phase 2 (第二阶段：排盘计算) transforms the birth information collected in Phase 1 into a complete eight-character chart (八字命盘) and a full sequence of major luck cycles (大运). Before calculating, the skill consults its internal reference tables for five-elements, stems and branches, shichen times, and hidden stems to ensure accuracy.
+
+## Year pillar (年柱)
+
+The year pillar is determined by the **Lichun (立春) solar term**, not by the Lunar New Year (农历正月初一).
+
+- Lichun typically falls on **February 3–5** of the Gregorian calendar each year.
+- If you were born **before** Lichun, your year pillar belongs to the **previous** year in the 60-cycle (六十甲子).
+- If you were born **after** Lichun, your year pillar belongs to the **current** year.
+
+<Warning>
+  This is one of the most common charting mistakes. A birth date of January 20 belongs to the prior year's pillar, not the current one — even though it is well into the new Gregorian year. Always verify the Lichun date for the birth year.
+</Warning>
+
+The year pillar stem and branch are read from the 60-cycle table. Yang stems (甲丙戊庚壬) pair with yang branches; yin stems (乙丁己辛癸) pair with yin branches.
+
+## Month pillar (月柱)
+
+Month pillar boundaries are **solar terms (节气)**, not lunar month boundaries.
+
+Each of the twelve months is defined by its opening **jié (节)** — the first of the paired solar terms:
+
+| Solar term | Month branch |
+|---|---|
+| 立春 (Lichun) | 寅 |
+| 惊蛰 (Jingzhe) | 卯 |
+| 清明 (Qingming) | 辰 |
+| 立夏 (Lixia) | 巳 |
+| 芒种 (Mangzhong) | 午 |
+| 小暑 (Xiaoshu) | 未 |
+| 立秋 (Liqiu) | 申 |
+| 白露 (Bailu) | 酉 |
+| 寒露 (Hanlu) | 戌 |
+| 立冬 (Lidong) | 亥 |
+| 大雪 (Daxue) | 子 |
+| 小寒 (Xiaohan) | 丑 |
+
+<Note>
+  If you were born on a solar-term transition day, your chart may straddle two month pillars. The skill identifies this and presents both possibilities with brief notes on each.
+</Note>
+
+The **month stem** is derived from the year stem using the 年上起月 mnemonic:
+
+> 甲己之年丙作首，乙庚之岁戊为头，丙辛之年寻庚上，丁壬壬寅顺水流，戊癸之年何方觅，甲寅之上好追求。
+
+This means:
+
+| Year stem | 寅-month stem (starting point) |
+|---|---|
+| 甲 or 己 | 丙 |
+| 乙 or 庚 | 戊 |
+| 丙 or 辛 | 庚 |
+| 丁 or 壬 | 壬 |
+| 戊 or 癸 | 甲 |
+
+From the 寅-month stem, each subsequent month stem advances by one in the 10-stem cycle.
+
+## Day pillar (日柱)
+
+The day pillar is determined by **calendar lookup** (万年历). Because the 60-cycle advances by one each day without exception, day pillars can be computed by offset from a known reference date.
+
+<Note>
+  If you were born between **23:00 and midnight (夜子时)**, the day pillar used for the hour pillar is the **next calendar day's** pillar. This is noted in the chart output. The 00:00–01:00 window (早子时) still belongs to the current day.
+</Note>
+
+## Hour pillar (时柱)
+
+### Determining the branch
+
+The hour branch (地支) is read directly from the shichen table. See [Information collection — step 5](/how-it-works/information-collection#birth-hour-出生时辰) for the full mapping.
+
+### Determining the stem — Five-Rat Escaping method (五鼠遁元)
+
+The hour stem depends on the **day stem** and is calculated using the Five-Rat Escaping formula (五鼠遁元):
+
+> 甲己还加甲，乙庚丙作初，丙辛从戊起，丁壬庚子居，戊癸何方发，壬子是真途。
+
+This gives the stem of the **Zi-hour** for each day-stem group. All other hours follow sequentially from that starting point:
+
+| Day stem | Zi-hour stem | Chou | Yin | Mao | Chen | Si | Wu | Wei | Shen | You | Xu | Hai |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 甲 / 己 | 甲子 | 乙丑 | 丙寅 | 丁卯 | 戊辰 | 己巳 | 庚午 | 辛未 | 壬申 | 癸酉 | 甲戌 | 乙亥 |
+| 乙 / 庚 | 丙子 | 丁丑 | 戊寅 | 己卯 | 庚辰 | 辛巳 | 壬午 | 癸未 | 甲申 | 乙酉 | 丙戌 | 丁亥 |
+| 丙 / 辛 | 戊子 | 己丑 | 庚寅 | 辛卯 | 壬辰 | 癸巳 | 甲午 | 乙未 | 丙申 | 丁酉 | 戊戌 | 己亥 |
+| 丁 / 壬 | 庚子 | 辛丑 | 壬寅 | 癸卯 | 甲辰 | 乙巳 | 丙午 | 丁未 | 戊申 | 己酉 | 庚戌 | 辛亥 |
+| 戊 / 癸 | 壬子 | 癸丑 | 甲寅 | 乙卯 | 丙辰 | 丁巳 | 戊午 | 己未 | 庚申 | 辛酉 | 壬戌 | 癸亥 |
+
+## Four pillars table
+
+Once all four pillars are calculated, the chart is displayed in the following format. Ten gods (十神) are computed relative to the **day stem (日主)** as the reference point. Hidden stems (藏干) show each branch's primary qi, middle qi, and residual qi.
+
+|  | 年柱 (Year) | 月柱 (Month) | 日柱 (Day) | 时柱 (Hour) |
+|---|---|---|---|---|
+| 天干 (Stem) | X | X | X | X |
+| 地支 (Branch) | X | X | X | X |
+| 十神 (Ten god) | | | — | |
+| 藏干 (Hidden stems) | | | | |
+
+- The day pillar's ten-god cell is left blank (`—`) because the day master (日主) is its own reference.
+- Hidden stem weights: primary qi ≈ 60 %, middle qi ≈ 30 %, residual qi ≈ 10 %.
+
+## Major luck cycles (大运)
+
+### Direction rule
+
+The direction of the luck-cycle sequence is set by the combination of birth-year polarity and gender:
+
+| Year polarity | Gender | Direction |
+|---|---|---|
+| Yang year (甲丙戊庚壬) | Male | Forward (顺排) |
+| Yang year | Female | Backward (逆排) |
+| Yin year (乙丁己辛癸) | Male | Backward (逆排) |
+| Yin year | Female | Forward (顺排) |
+
+Mnemonic: **阳男阴女顺排，阴男阳女逆排**
+
+### Constructing the sequence
+
+Starting from the **month pillar**, each successive luck cycle advances the stem and branch by one position in the appropriate direction.
+
+**Forward example** — month pillar 丙寅:
+
+> 丁卯 → 戊辰 → 己巳 → 庚午 → 辛未 → …
+
+**Backward example** — month pillar 丙寅:
+
+> 乙丑 → 甲子 → 癸亥 → 壬戌 → 辛酉 → …
+
+### Onset age calculation
+
+The age at which the first major cycle begins (起运年龄) is calculated from the number of days between the birth date and the nearest **jié (节)** solar term:
+
+- **Forward (顺排)**: count forward to the **next** jié.
+- **Backward (逆排)**: count backward to the **previous** jié.
+
+**Formula**: onset age = days to jié ÷ 3
+
+The twelve jié used for this calculation are: 立春、惊蛰、清明、立夏、芒种、小暑、立秋、白露、寒露、立冬、大雪、小寒.
+
+Remainder handling: remainder of 1 day ≈ 4 months; remainder of 2 days ≈ 8 months; no remainder = whole-year onset.
+
+Before the first major cycle begins, the **month pillar** itself serves as the operative cycle (小运).
+
+### Luck-cycle table format
+
+| Cycle | Age range | Stem-branch |
+|---|---|---|
+| Pre-onset (小运) | 0–X years old | Month pillar |
+| Cycle 1 | X–X years old | XX |
+| Cycle 2 | X–X years old | XX |
+| Cycle 3 | X–X years old | XX |
+| … | … | … |
+
+Each cycle covers **ten years**. The stem is generally considered to govern the first five years of the cycle; the branch governs the latter five — though some traditions hold that stem and branch co-govern the full ten years.
+
+<Tip>
+  The transition year between two major cycles (换运年) is often a period of significant change. Pay particular attention to the relationship between the incoming cycle and the original chart during these transition years.
+</Tip>

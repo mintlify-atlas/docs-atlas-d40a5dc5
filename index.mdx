@@ -1,97 +1,49 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "Bazi Skill — 赛博算命"
+description: "A Claude Code skill for professional Four Pillars (四柱八字) birth chart analysis, grounded in nine classical Chinese astrology texts."
 ---
 
-## Setting up
+Bazi Skill turns Claude Code into a traditional Chinese astrology consultant. Through a guided conversation, it collects your birth information, calculates your Four Pillars chart (四柱八字), and delivers a structured analysis of your destiny pattern — referencing nine canonical texts including 《穷通宝典》, 《滴天髓》, and 《子平真诠》.
 
-Get your documentation site up and running in minutes.
-
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="Installation" icon="download" href="/installation">
+    Clone the skill into your Claude Code project or global skills directory in two commands.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="Quick Start" icon="rocket" href="/quickstart">
+    Trigger your first reading with a single phrase and see the full analysis flow.
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
+  <Card title="How It Works" icon="gear" href="/how-it-works/information-collection">
+    Understand the three-phase workflow: data collection, charting, and comprehensive analysis.
   </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+  <Card title="Reference Tables" icon="table" href="/reference/heavenly-stems-earthly-branches">
+    Look up stems, branches, Ten Gods, Shichen times, and Major Luck Cycle rules.
   </Card>
-</Columns>
+</CardGroup>
 
-## Create beautiful pages
+## What you get from a reading
 
-Everything you need to create world-class documentation.
+A complete Bazi Skill session walks through three phases:
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+<Steps>
+  <Step title="Information collection">
+    The skill asks for your name, solar and/or lunar birth date, birth hour (时辰), gender, and birthplace — one question at a time, at your pace.
+  </Step>
+  <Step title="Four Pillars charting">
+    The skill calculates your Year, Month, Day, and Hour pillars (四柱), derives Hidden Stems (藏干) and Ten Gods (十神), then lays out your Major Luck Cycles (大运) with their onset age.
+  </Step>
+  <Step title="Comprehensive analysis">
+    You receive a structured reading covering day-master strength, Five-Element balance, pattern (格局) determination, current Major Luck Cycle, annual luck (流年), and life-area guidance for career, relationships, and health.
+  </Step>
+</Steps>
 
-## Need inspiration?
+## Trigger keywords
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+Type any of the following in a Claude Code session to start a reading:
+
+```
+算八字  看八字  批八字  排八字  四柱  命盘  算命  排盘  bazi
+```
+
+<Note>
+  Bazi Skill is a traditional culture and entertainment tool. Analysis results are for reference only and do not constitute any decision-making basis. Please approach Chinese metaphysics rationally.
+</Note>

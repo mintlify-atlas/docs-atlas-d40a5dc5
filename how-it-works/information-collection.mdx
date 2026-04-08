@@ -1,0 +1,169 @@
+---
+title: "Information collection"
+description: "How the Bazi skill gathers your birth details across nine guided steps before producing a chart."
+---
+
+Phase 1 (第一阶段：信息收集) walks through nine steps in sequence. Each step builds on the previous one, so the skill asks questions one at a time rather than all at once. Steps with clear options use an interactive prompt; free-text steps (name, dates, location) are answered in plain conversation.
+
+<Steps>
+
+  <Step title="Name (姓名)">
+    The skill asks for your current legal name in plain text:
+
+    > "请告诉我您的姓名。"
+
+    No options are presented here — you simply type your name in reply.
+  </Step>
+
+  <Step title="Former name (曾用名)">
+    The skill asks whether you have ever used a different name:
+
+    > "请问您有曾用名吗？"
+
+    Three options are offered:
+
+    - **No former name** — moves directly to step 3.
+    - **Has a former name** — the skill collects the former name and asks for the approximate year of the change. If you cannot recall the year, it is recorded as "unknown."
+    - **Not sure** — moves directly to step 3.
+
+    <Note>
+      If the change year is unknown, the analysis notes the former name but relies on your current name and does not attempt to correlate the name change with chart events.
+    </Note>
+  </Step>
+
+  <Step title="Solar birthday (阳历生日)">
+    The skill asks for your Gregorian (solar) birth date in plain text:
+
+    > "请告诉我您的阳历（公历）生日，格式如：1990年5月15日。如果不确定阳历生日，可以说不知道。"
+
+    - If you provide the date, it is recorded and the skill moves on.
+    - If you do not know it, the field is marked "unknown."
+  </Step>
+
+  <Step title="Lunar birthday (农历生日)">
+    The skill asks for your Chinese lunar birth date:
+
+    > "请告诉我您的农历（阴历）生日，格式如：1990年四月廿一。如果有闰月请标注（如：闰四月）。如果不确定农历生日，可以说不知道。"
+
+    - If you were born in a **leap month (闰月)**, include that in your answer (e.g., 闰四月). The charting phase uses solar terms rather than the lunar calendar, so a leap-month birth does not change the pillar calculation — but the notation is preserved for reference.
+    - If you do not know the lunar date, the field is marked "unknown."
+
+    <Note>
+      If **both** the solar and lunar birth dates are unknown, the skill cannot produce a chart. You will be advised to check your birth certificate or ask a family member before proceeding.
+    </Note>
+  </Step>
+
+  <Step title="Birth hour (出生时辰)">
+    The skill asks for the time you were born:
+
+    > "请问您的出生时辰是？（如果只知道大概时间也可以，比如'早上'、'下午'）"
+
+    Three outcomes are possible:
+
+    - **Exact clock time** — converted to the corresponding earthly branch using the shichen table below.
+    - **Approximate description** — mapped to the nearest shichen (see table).
+    - **Unknown** — the hour pillar is left blank; only a six-character (六字) analysis covering year, month, and day is produced.
+
+    | Description | Shichen |
+    |---|---|
+    | After midnight / late night (天还没亮 / 后半夜) | 丑 or 寅 |
+    | Just after dawn / early morning (天刚亮 / 早上) | 卯 |
+    | Breakfast time / morning (吃早饭 / 上午) | 辰 |
+    | Late morning (快中午 / 上午后半) | 巳 |
+    | Noon / lunch (中午 / 吃午饭) | 午 |
+    | Early afternoon (下午刚开始) | 未 |
+    | Afternoon / before dusk (下午 / 傍晚前) | 申 |
+    | Dusk / almost dark (天快黑 / 傍晚) | 酉 |
+    | Dinner / evening (吃晚饭 / 晚上) | 戌 |
+    | Night / before sleep (夜里 / 睡前) | 亥 |
+    | Midnight / deep night (半夜 / 深夜) | 子 |
+
+    The twelve standard shichen and their clock ranges are:
+
+    | Shichen | Branch | Clock range | Alternate name |
+    |---|---|---|---|
+    | 夜半 | 子 | 23:00–01:00 | 中夜 |
+    | 鸡鸣 | 丑 | 01:00–03:00 | 荒鸡 |
+    | 平旦 | 寅 | 03:00–05:00 | 黎明 |
+    | 日出 | 卯 | 05:00–07:00 | 破晓 |
+    | 食时 | 辰 | 07:00–09:00 | 早食 |
+    | 隅中 | 巳 | 09:00–11:00 | 日禺 |
+    | 日中 | 午 | 11:00–13:00 | 正午 |
+    | 日昳 | 未 | 13:00–15:00 | 日跌 |
+    | 晡时 | 申 | 15:00–17:00 | 日铺 |
+    | 日入 | 酉 | 17:00–19:00 | 傍晚 |
+    | 黄昏 | 戌 | 19:00–21:00 | 日暮 |
+    | 人定 | 亥 | 21:00–23:00 | 定昏 |
+
+    <Note>
+      If you were born between 23:00 and midnight (夜子时), the skill uses the **next day's** day pillar when computing the hour pillar. This early/late Zi-hour distinction (早晚子时法) is noted in the output.
+    </Note>
+  </Step>
+
+  <Step title="Gender (性别)">
+    The skill asks for your gender:
+
+    > "请问您的性别？"
+
+    Options: **男 (male)** / **女 (female)**
+
+    Gender determines the direction of the major luck cycles (大运):
+
+    - **Yang-year male / yin-year female** → cycles run forward (顺排)
+    - **Yin-year male / yang-year female** → cycles run backward (逆排)
+
+    This step is required and cannot be skipped.
+  </Step>
+
+  <Step title="Birthplace (出生地)">
+    The skill asks for the province and city of birth:
+
+    > "请告诉我您的出生省份和城市（例如：辽宁省丹东市）。"
+
+    Birthplace is used for **true solar time (真太阳时) correction**. China spans roughly five time zones but uses a single standard time (UTC+8). If your birthplace is far east or west of the 120°E meridian, the true local solar noon may differ from clock noon by up to ±30 minutes. When this could shift your birth time across a shichen boundary, the skill notes the discrepancy and may suggest confirming the exact hour.
+  </Step>
+
+  <Step title="Living status (在世状态)">
+    The skill asks whether the subject is still living:
+
+    > "请问要分析的人目前是否在世？"
+
+    - **Living** — the skill automatically retrieves today's date as the reference point for current and future cycle analysis.
+    - **Deceased** — the skill asks for the year of death. All analysis (major luck cycles, annual luck) is limited to that year; no projections are made beyond it.
+  </Step>
+
+  <Step title="Confirmation summary">
+    Before charting begins, the skill presents a summary of all collected information for you to verify:
+
+    <AccordionGroup>
+      <Accordion title="Example confirmation summary">
+        ```text
+        📋 信息确认：
+        - 姓名：XXX（曾用名：XXX，改名时间：XXXX年/未知/无）
+        - 阳历生日：XXXX年XX月XX日（或：未知）
+        - 农历生日：XXXX年XX月XX日（或：未知）
+        - 出生时辰：X时（或：未知）
+        - 性别：男/女
+        - 出生地：XX省XX市
+        - 当前日期：XXXX年XX月XX日
+        - 在世状态：在世/已故（XXXX年去世）
+        ```
+
+        > "以上信息是否正确？如需修改请告诉我，确认后我将开始排盘分析。"
+      </Accordion>
+    </AccordionGroup>
+
+    Reply to confirm, or point out any field that needs correction. Once confirmed, the skill proceeds to [Phase 2: Charting](/how-it-works/charting).
+  </Step>
+
+</Steps>
+
+## Edge cases handled in this phase
+
+| Situation | Handling |
+|---|---|
+| Both solar and lunar dates unknown | Cannot proceed; advise checking birth certificate |
+| Birth hour unknown | Hour pillar omitted; six-character analysis only |
+| Former name change year unknown | Recorded as "unknown"; current name used for analysis |
+| Leap month (闰月) birth | Noted in records; charting uses solar terms, not lunar month |
+| Deceased subject | Analysis capped at year of death; no future projections |
